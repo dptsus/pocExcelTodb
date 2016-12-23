@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DoctorsManagementSystemModelStoreContainer" CdmEntityContainer="DoctorsManagementSystemEntities">
+    <EntitySetMapping Name="Doctors">
+      <EntityTypeMapping TypeName="DoctorsManagementSystemModel.Doctor">
+        <MappingFragment StoreEntitySet="Doctor">
+          <ScalarProperty Name="SmartPhone" ColumnName="SmartPhone" />
+          <ScalarProperty Name="Subscription" ColumnName="Subscription" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ShortProfile" ColumnName="ShortProfile" />
+          <ScalarProperty Name="YearsOfExperience" ColumnName="YearsOfExperience" />
+          <ScalarProperty Name="RegistrationNumber" ColumnName="RegistrationNumber" />
+          <ScalarProperty Name="Expertise" ColumnName="Expertise" />
+          <ScalarProperty Name="Speciality" ColumnName="Speciality" />
+          <ScalarProperty Name="Qualifications" ColumnName="Qualifications" />
+          <ScalarProperty Name="LandLineNumber" ColumnName="LandLineNumber" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="FormNumber" ColumnName="FormNumber" />
+          <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Yogacenters">
+      <EntityTypeMapping TypeName="DoctorsManagementSystemModel.Yogacenter">
+        <MappingFragment StoreEntitySet="Yogacenter">
+          <ScalarProperty Name="HealthStatus" ColumnName="HealthStatus" />
+          <ScalarProperty Name="Course" ColumnName="Course" />
+          <ScalarProperty Name="AcademicQualification" ColumnName="AcademicQualification" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+          <ScalarProperty Name="PermanantAddress" ColumnName="PermanantAddress" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="ProcessingNumberId" ColumnName="ProcessingNumberId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clinics">
+      <EntityTypeMapping TypeName="DoctorsManagementSystemModel.Clinic">
+        <MappingFragment StoreEntitySet="Clinic">
+          <ScalarProperty Name="FollowUp" ColumnName="FollowUp" />
+          <ScalarProperty Name="Fees" ColumnName="Fees" />
+          <ScalarProperty Name="AdditionalServicesInClinic" ColumnName="AdditionalServicesInClinic" />
+          <ScalarProperty Name="AppointmentSlotTime" ColumnName="AppointmentSlotTime" />
+          <ScalarProperty Name="AppointmentMode" ColumnName="AppointmentMode" />
+          <ScalarProperty Name="ScheduleDeatils" ColumnName="ScheduleDeatils" />
+          <ScalarProperty Name="Holidays" ColumnName="Holidays" />
+          <ScalarProperty Name="EveningEndTime" ColumnName="EveningEndTime" />
+          <ScalarProperty Name="EveningStartTime" ColumnName="EveningStartTime" />
+          <ScalarProperty Name="MorningEndTime" ColumnName="MorningEndTime" />
+          <ScalarProperty Name="MorningStartTime" ColumnName="MorningStartTime" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="LandlineNumberOrMobileNumber" ColumnName="LandlineNumberOrMobileNumber" />
+          <ScalarProperty Name="ReceptionistLoginMobileNumber" ColumnName="ReceptionistLoginMobileNumber" />
+          <ScalarProperty Name="LoginNeededForReceptionist" ColumnName="LoginNeededForReceptionist" />
+          <ScalarProperty Name="ReceptionistAvaliable" ColumnName="ReceptionistAvaliable" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="ClinicName" ColumnName="ClinicName" />
+          <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+          <ScalarProperty Name="ClinicId" ColumnName="ClinicId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

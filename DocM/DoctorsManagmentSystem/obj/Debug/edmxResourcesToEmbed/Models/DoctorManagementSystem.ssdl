@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DoctorsManagementSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Clinic">
+    <Key>
+      <PropertyRef Name="ClinicId" />
+    </Key>
+    <Property Name="ClinicId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DoctorId" Type="int" Nullable="false" />
+    <Property Name="ClinicName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="State" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PinCode" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Latitude" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Longitude" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="ReceptionistAvaliable" Type="bit" Nullable="false" />
+    <Property Name="LoginNeededForReceptionist" Type="bit" />
+    <Property Name="ReceptionistLoginMobileNumber" Type="varchar" MaxLength="15" />
+    <Property Name="LandlineNumberOrMobileNumber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmailId" Type="varchar" MaxLength="50" />
+    <Property Name="MorningStartTime" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MorningEndTime" Type="time" Precision="7" Nullable="false" />
+    <Property Name="EveningStartTime" Type="time" Precision="7" Nullable="false" />
+    <Property Name="EveningEndTime" Type="time" Precision="7" Nullable="false" />
+    <Property Name="Holidays" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ScheduleDeatils" Type="varchar" MaxLength="50" />
+    <Property Name="AppointmentMode" Type="bit" Nullable="false" />
+    <Property Name="AppointmentSlotTime" Type="bit" />
+    <Property Name="AdditionalServicesInClinic" Type="varchar" MaxLength="100" />
+    <Property Name="Fees" Type="nchar" MaxLength="10" />
+    <Property Name="FollowUp" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Doctor">
+    <Key>
+      <PropertyRef Name="DoctorId" />
+    </Key>
+    <Property Name="DoctorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FormNumber" Type="int" />
+    <Property Name="Date" Type="date" />
+    <Property Name="Title" Type="varchar" MaxLength="50" />
+    <Property Name="FullName" Type="varchar" MaxLength="100" />
+    <Property Name="Gender" Type="bit" />
+    <Property Name="DateOfBirth" Type="date" />
+    <Property Name="MobileNumber" Type="varchar" MaxLength="15" />
+    <Property Name="LandLineNumber" Type="varchar" MaxLength="15" />
+    <Property Name="Qualifications" Type="varchar" MaxLength="50" />
+    <Property Name="Speciality" Type="varchar" MaxLength="50" />
+    <Property Name="Expertise" Type="varchar" MaxLength="50" />
+    <Property Name="RegistrationNumber" Type="varchar" MaxLength="50" />
+    <Property Name="YearsOfExperience" Type="varchar" MaxLength="10" />
+    <Property Name="ShortProfile" Type="varchar" MaxLength="100" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Website" Type="varchar" MaxLength="50" />
+    <Property Name="Latitude" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Longitude" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Subscription" Type="bit" />
+    <Property Name="SmartPhone" Type="bit" />
+  </EntityType>
+  <EntityType Name="Yogacenter">
+    <Key>
+      <PropertyRef Name="ProcessingNumberId" />
+    </Key>
+    <Property Name="ProcessingNumberId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FullName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DateOfBirth" Type="date" Nullable="false" />
+    <Property Name="Gender" Type="bit" Nullable="false" />
+    <Property Name="Nationality" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="State" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PermanantAddress" Type="varchar" MaxLength="100" />
+    <Property Name="PinCode" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="AcademicQualification" Type="varchar" MaxLength="50" />
+    <Property Name="Course" Type="int" Nullable="false" />
+    <Property Name="HealthStatus" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Clinic_DoctorId">
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+    <End Role="Clinic" Type="Self.Clinic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctor">
+        <PropertyRef Name="DoctorId" />
+      </Principal>
+      <Dependent Role="Clinic">
+        <PropertyRef Name="DoctorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DoctorsManagementSystemModelStoreContainer">
+    <EntitySet Name="Clinic" EntityType="Self.Clinic" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Yogacenter" EntityType="Self.Yogacenter" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Clinic_DoctorId" Association="Self.FK_Clinic_DoctorId">
+      <End Role="Doctor" EntitySet="Doctor" />
+      <End Role="Clinic" EntitySet="Clinic" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

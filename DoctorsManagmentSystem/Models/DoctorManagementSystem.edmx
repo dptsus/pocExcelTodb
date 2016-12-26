@@ -23,10 +23,10 @@
           <Property Name="ReceptionistLoginMobileNumber" Type="varchar" MaxLength="15" />
           <Property Name="LandlineNumberOrMobileNumber" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="EmailId" Type="varchar" MaxLength="50" />
-          <Property Name="MorningStartTime" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="MorningEndTime" Type="time" Precision="7" Nullable="false" />
-          <Property Name="EveningStartTime" Type="time" Precision="7" Nullable="false" />
-          <Property Name="EveningEndTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="MorningStartTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="MorningEndTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="EveningStartTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="EveningEndTime" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="Holidays" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ScheduleDeatils" Type="varchar" MaxLength="50" />
           <Property Name="AppointmentMode" Type="bit" Nullable="false" />
@@ -81,26 +81,10 @@
           <Property Name="Course" Type="int" Nullable="false" />
           <Property Name="HealthStatus" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Clinic_DoctorId">
-          <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
-          <End Role="Clinic" Type="Self.Clinic" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Doctor">
-              <PropertyRef Name="DoctorId" />
-            </Principal>
-            <Dependent Role="Clinic">
-              <PropertyRef Name="DoctorId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="DoctorsManagementSystemModelStoreContainer">
           <EntitySet Name="Clinic" EntityType="Self.Clinic" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Yogacenter" EntityType="Self.Yogacenter" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Clinic_DoctorId" Association="Self.FK_Clinic_DoctorId">
-            <End Role="Doctor" EntitySet="Doctor" />
-            <End Role="Clinic" EntitySet="Clinic" />
-          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -110,10 +94,6 @@
           <EntitySet Name="Doctors" EntityType="DoctorsManagementSystemModel.Doctor" />
           <EntitySet Name="Yogacenters" EntityType="DoctorsManagementSystemModel.Yogacenter" />
           <EntitySet Name="Clinics" EntityType="DoctorsManagementSystemModel.Clinic" />
-          <AssociationSet Name="FK_Clinic_DoctorId" Association="DoctorsManagementSystemModel.FK_Clinic_DoctorId">
-            <End Role="Doctor" EntitySet="Doctors" />
-            <End Role="Clinic" EntitySet="Clinics" />
-          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Doctor">
           <Key>
@@ -140,7 +120,6 @@
           <Property Name="Longitude" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="Subscription" Type="Boolean" />
           <Property Name="SmartPhone" Type="Boolean" />
-          <NavigationProperty Name="Clinics" Relationship="DoctorsManagementSystemModel.FK_Clinic_DoctorId" FromRole="Doctor" ToRole="Clinic" />
         </EntityType>
         <EntityType Name="Yogacenter">
           <Key>
@@ -180,10 +159,10 @@
           <Property Name="ReceptionistLoginMobileNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="LandlineNumberOrMobileNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="EmailId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="MorningStartTime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="MorningEndTime" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="EveningStartTime" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="EveningEndTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="MorningStartTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="MorningEndTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="EveningStartTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="EveningEndTime" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="Holidays" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ScheduleDeatils" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="AppointmentMode" Type="Boolean" Nullable="false" />
@@ -191,20 +170,7 @@
           <Property Name="AdditionalServicesInClinic" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Fees" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="FollowUp" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="Doctor" Relationship="DoctorsManagementSystemModel.FK_Clinic_DoctorId" FromRole="Clinic" ToRole="Doctor" />
         </EntityType>
-        <Association Name="FK_Clinic_DoctorId">
-          <End Type="DoctorsManagementSystemModel.Doctor" Role="Doctor" Multiplicity="1" />
-          <End Type="DoctorsManagementSystemModel.Clinic" Role="Clinic" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Doctor">
-              <PropertyRef Name="DoctorId" />
-            </Principal>
-            <Dependent Role="Clinic">
-              <PropertyRef Name="DoctorId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

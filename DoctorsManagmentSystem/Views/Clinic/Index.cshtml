@@ -4,6 +4,7 @@
     ViewBag.Title = "Index";
 }
 
+<h2>Index</h2>
 
 <h4>Add Users via Excel</h4>
 <hr />
@@ -42,152 +43,166 @@
     </div>
 }
 
-
-
-
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table table-responsive">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ClinicId)
-        </th>
-    </tr>
+<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.DoctorId)
         </th>
-    </tr>
-    <tr>
         <th>
             @Html.DisplayNameFor(model => model.ClinicName)
         </th>
-    </tr>
-    <tr>
         <th>
             @Html.DisplayNameFor(model => model.Address)
         </th>
-    </tr>
-    <tr>
         <th>
             @Html.DisplayNameFor(model => model.City)
         </th>
-    </tr>
-    <tr>
         <th>
             @Html.DisplayNameFor(model => model.State)
         </th>
-    </tr>
-    <tr>
         <th>
             @Html.DisplayNameFor(model => model.PinCode)
         </th>
-    </tr>
-    <tr>
         <th>
             @Html.DisplayNameFor(model => model.Latitude)
         </th>
-    </tr>
-    <tr>
         <th>
             @Html.DisplayNameFor(model => model.Longitude)
         </th>
-    </tr>
-    <tr>
         <th>
             @Html.DisplayNameFor(model => model.ReceptionistAvaliable)
         </th>
-    </tr>
-    <tr>
         <th>
             @Html.DisplayNameFor(model => model.LoginNeededForReceptionist)
         </th>
-    </tr>
-    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ReceptionistLoginMobileNumber)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.LandlineNumberOrMobileNumber)
         </th>
-    </tr>
-    <tr>
         <th>
             @Html.DisplayNameFor(model => model.EmailId)
         </th>
-    </tr>
-    <tr>
         <th>
             @Html.DisplayNameFor(model => model.MorningStartTime)
         </th>
-    </tr>
-    <tr>
         <th>
             @Html.DisplayNameFor(model => model.MorningEndTime)
         </th>
-    </tr>
-    <tr>
         <th>
             @Html.DisplayNameFor(model => model.EveningStartTime)
         </th>
-    </tr>
-    <tr>
         <th>
             @Html.DisplayNameFor(model => model.EveningEndTime)
         </th>
-    </tr>
-    <tr>
         <th>
             @Html.DisplayNameFor(model => model.Holidays)
         </th>
-    </tr>
-    <tr>
         <th>
             @Html.DisplayNameFor(model => model.ScheduleDeatils)
         </th>
-    </tr>
-    <tr>
         <th>
             @Html.DisplayNameFor(model => model.AppointmentMode)
         </th>
-    </tr>
-    <tr>
         <th>
             @Html.DisplayNameFor(model => model.AppointmentSlotTime)
         </th>
-    </tr>
-    <tr>
         <th>
             @Html.DisplayNameFor(model => model.AdditionalServicesInClinic)
         </th>
-    </tr>
-    <tr>
         <th>
             @Html.DisplayNameFor(model => model.Fees)
         </th>
-    </tr>
-    <tr>
         <th>
             @Html.DisplayNameFor(model => model.FollowUp)
         </th>
+        <th></th>
     </tr>
-    @foreach (var item in Model)
-    {
 
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClinicName)
-            </td>
-        </tr>
-    }
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DoctorId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClinicName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.State)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PinCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Latitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Longitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReceptionistAvaliable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoginNeededForReceptionist)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReceptionistLoginMobileNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LandlineNumberOrMobileNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MorningStartTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MorningEndTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EveningStartTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EveningEndTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Holidays)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ScheduleDeatils)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppointmentMode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppointmentSlotTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdditionalServicesInClinic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fees)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FollowUp)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ClinicId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ClinicId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ClinicId })
+        </td>
+    </tr>
+}
 
 </table>
-<link href="@Url.Content("~/Content/toastr.min.css")" rel="stylesheet" />
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    <script src="~/Scripts/toastr.js"></script>
-    <script>
-        $(document).ready(function e() {
-            toastr.success("Welcome to DPTS");
-        });
-    </script>
-}

@@ -12,6 +12,14 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.DoctorId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoctorId)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.ClinicName)
         </dt>
 
@@ -193,14 +201,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.FollowUp)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Doctor.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Doctor.Title)
         </dd>
 
     </dl>

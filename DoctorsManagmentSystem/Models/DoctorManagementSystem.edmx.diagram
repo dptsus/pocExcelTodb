@@ -7,8 +7,7 @@
       <Diagram DiagramId="14a3a3fb60494976b0982431bfe41ec2" Name="Diagram1" ZoomLevel="75">
         <EntityTypeShape EntityType="DoctorsManagementSystemModel.Doctor" Width="1.5" PointX="0.75" PointY="1.5" />
         <EntityTypeShape EntityType="DoctorsManagementSystemModel.Yogacenter" Width="1.5" PointX="5.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DoctorsManagementSystemModel.Clinic" Width="1.5" PointX="3" PointY="1.125" />
-        <AssociationConnector Association="DoctorsManagementSystemModel.FK_Clinic_DoctorId" />
+        <EntityTypeShape EntityType="DoctorsManagementSystemModel.Clinic" Width="1.5" PointX="3.375" PointY="5.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

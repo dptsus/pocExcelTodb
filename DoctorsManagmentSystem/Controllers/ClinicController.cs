@@ -17,12 +17,14 @@ using Microsoft.Ajax.Utilities;
 
 namespace DoctorsManagmentSystem.Controllers
 {
-    //yogesh last updated
+    // ....
     public class ClinicController : Controller
     {
 
+
+
         private DoctorsManagementSystemEntities db = new DoctorsManagementSystemEntities();
-        //private object ClinicId;
+        
         public ActionResult Index()
         {
             //Controllers.clinic.StatusMessage = "Uploaded";
@@ -33,21 +35,10 @@ namespace DoctorsManagmentSystem.Controllers
             const string path = "/Doc/Users.xlsx";
             return File(path, "application/vnd.ms-excel", "Users.xlsx");
         }
-        //public static object ClinicName { get; private set; }
-
-        //public static object DoctorId { get; set; }
-
-        //public ActionResult UploadExcel()
-        //{
-        //    throw new NotImplementedException();
-        //}
-        //yogesh
+       
         public ActionResult UploadExcel(Clinic users, HttpPostedFileBase FileUpload)
         {
             List<string> data = new List<string>();
-            //var data = new List<string>();
-            //var validatedclinics = new List<Clinic>();
-            //var inValidatedClinics = new List<Clinic>();
             if (FileUpload != null)
             {
                 if (FileUpload.ContentType == "application/vnd.ms-excel" ||
@@ -76,13 +67,14 @@ namespace DoctorsManagmentSystem.Controllers
                     var adapter = new OleDbDataAdapter("SELECT * FROM [Sheet1$]", connectionString);
                     var ds = new DataSet();
                     adapter.Fill(ds, "ExcelTable");
-                    const string sheetName = "Sheet1";
+                    var sheetName = "Sheet1";
                     var excelFile = new ExcelQueryFactory(pathToExcelFile);
-                    var clininSheet = from a in excelFile.Worksheet<Clinic>(sheetName) select a;
+                    var clininSheet = (from a in excelFile.Worksheet<Clinic>(sheetName) select a);
                     foreach (var a in clininSheet)
                     {
                         try
                         {
+
                             Clinic doc = new Clinic();
                             doc.ClinicId = a.ClinicId;
                             doc.DoctorId = a.DoctorId;
@@ -111,7 +103,7 @@ namespace DoctorsManagmentSystem.Controllers
                             doc.FollowUp = a.FollowUp;
                             db.Clinics.Add(doc);
                             db.SaveChanges();
-                         
+
                         }
                         catch (DbEntityValidationException ex)
                         {
@@ -127,8 +119,8 @@ namespace DoctorsManagmentSystem.Controllers
                         if (System.IO.File.Exists(pathToExcelFile))
                         {
                             System.IO.File.Delete(pathToExcelFile);
-                        }
-                        return Json("success", JsonRequestBehavior.AllowGet);
+                        }                       
+                        return Json("Record Insertion is Successful", JsonRequestBehavior.AllowGet);
                     }
                 }
                 else
@@ -193,7 +185,7 @@ namespace DoctorsManagmentSystem.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        
+
         public ActionResult Edit([Bind(Include = "ClinicId,DoctorId,ClinicName,Address,City,State,PinCode,Latitude,Longitude,ReceptionistAvaliable,LoginNeededForReceptionist,,Expertise,LandlineNumberOrMobileNumber,EmailId,MorningStartTime,MorningEndTime,EveningStartTime,EveningEndTime,Holidays,ScheduleDeatils,AppointmentMode,AppointmentSlotTime,AdditionalServicesInClinic,Fees,FollowUp")] Clinic clinic)
         {
             if (ModelState.IsValid)

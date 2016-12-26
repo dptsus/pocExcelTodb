@@ -180,6 +180,8 @@
     <Compile Include="Controllers\AppointmentSlotTime.cs" />
     <Compile Include="Controllers\ClinicController.cs" />
     <Compile Include="Controllers\FollowUp.cs" />
+    <Compile Include="Controllers\JavascriptResult.cs" />
+    <Compile Include="Controllers\JavascriptResult_2.cs" />
     <Compile Include="Interface\IPopulateDataToDatabase.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
@@ -248,6 +250,7 @@
     </Content>
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
+    <Content Include="DoctorsManagmentSystem.csproj.DotSettings" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

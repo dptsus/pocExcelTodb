@@ -14,11 +14,6 @@ namespace DoctorsManagmentSystem.Models
     
     public partial class Doctor
     {
-        public Doctor()
-        {
-            this.Clinics = new HashSet<Clinic>();
-        }
-    
         public int DoctorId { get; set; }
         public Nullable<int> FormNumber { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
@@ -40,7 +35,5 @@ namespace DoctorsManagmentSystem.Models
         public Nullable<decimal> Longitude { get; set; }
         public Nullable<bool> Subscription { get; set; }
         public Nullable<bool> SmartPhone { get; set; }
-    
-        public virtual ICollection<Clinic> Clinics { get; set; }
     }
 }

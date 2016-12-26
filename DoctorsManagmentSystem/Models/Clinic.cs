@@ -28,10 +28,10 @@ namespace DoctorsManagmentSystem.Models
         public string ReceptionistLoginMobileNumber { get; set; }
         public string LandlineNumberOrMobileNumber { get; set; }
         public string EmailId { get; set; }
-        public string MorningStartTime { get; set; }
-        public System.TimeSpan MorningEndTime { get; set; }
-        public System.TimeSpan EveningStartTime { get; set; }
-        public System.TimeSpan EveningEndTime { get; set; }
+        public System.DateTime MorningStartTime { get; set; }
+        public System.DateTime MorningEndTime { get; set; }
+        public System.DateTime EveningStartTime { get; set; }
+        public System.DateTime EveningEndTime { get; set; }
         public string Holidays { get; set; }
         public string ScheduleDeatils { get; set; }
         public bool AppointmentMode { get; set; }
@@ -39,7 +39,5 @@ namespace DoctorsManagmentSystem.Models
         public string AdditionalServicesInClinic { get; set; }
         public string Fees { get; set; }
         public string FollowUp { get; set; }
-    
-        public virtual Doctor Doctor { get; set; }
     }
 }

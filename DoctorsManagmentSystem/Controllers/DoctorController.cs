@@ -14,7 +14,7 @@ using LinqToExcel;
 
 namespace DoctorsManagmentSystem.Controllers
 {
-    //yogesh last updated
+    // ...
     public class DoctorController : Controller
     {
         private DoctorsManagementSystemEntities db = new DoctorsManagementSystemEntities();
@@ -119,7 +119,7 @@ namespace DoctorsManagmentSystem.Controllers
                     {
                         System.IO.File.Delete(pathToExcelFile);
                     }
-                    return Json("success", JsonRequestBehavior.AllowGet);
+                    return Json("Record Insertion is Successful", JsonRequestBehavior.AllowGet);
                 }
                 else
                 {
@@ -142,9 +142,6 @@ namespace DoctorsManagmentSystem.Controllers
 
             return View(db.Doctors.ToList());
         }
-
-
-
         // GET: /Doctor/Details/5
         public ActionResult Details(int? id)
         {
